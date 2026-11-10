@@ -4,36 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация — Инженерный колледж</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/registration.css">
 </head>
 <body>
 
-<header>
-    <h1>Инженерный колледж</h1>
-</header>
+    <header class="site-header">
+        <a class="brand" href="index.html">Инженерный колледж</a>
+        <a class="back-link" href="index.html">← На главную</a>
+    </header>
 
-<main>
-    <section class="registration">
-        <h2>Регистрация</h2>
+    <main class="page">
+        <section class="register-card">
+            <div class="eyebrow">Поступление</div>
 
-        <form>
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required>
+            <h1>Создать аккаунт</h1>
+            <p class="subtitle">
+                Заполните форму, чтобы зарегистрироваться.
+            </p>
 
-            <label for="email">Электронная почта:</label>
-            <input type="email" id="email" name="email" required>
+            <form id="registration-form">
 
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+                <label for="name">Имя</label>
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Ваше имя"
+                    autocomplete="name"
+                    required
+                >
 
-            <button type="submit">Зарегистрироваться</button>
-        </form>
-    </section>
-</main>
+                <label for="email">Электронная почта</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    autocomplete="email"
+                    required
+                >
 
-<footer>
-    <p>© Инженерный колледж</p>
-</footer>
+                <label for="password">Пароль</label>
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Минимум 8 символов"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <button type="submit">
+                    Зарегистрироваться
+                </button>
+
+                <p class="form-note" id="form-note" role="status">
+                    Демонстрационная форма: данные не сохраняются.
+                </p>
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        © Инженерный колледж
+    </footer>
+
+    <script>
+        document.getElementById('registration-form')
+            .addEventListener('submit', function(event) {
+
+                event.preventDefault();
+
+                document.getElementById('form-note').textContent =
+                    'Форма заполнена. Для настоящей регистрации необходимо подключить сервер.';
+            });
+    </script>
 
 </body>
 </html>
